@@ -8,3 +8,18 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+/* Import Bootstrap CSS (already included via CDN in layout, but you can override styles here) */
+
+/* Custom styles */
+.navbar {
+  background-color: #FDF6EA !important;
+}
+
+.navbar-brand {
+  font-size: 3rem;
+}
+
+h1 {
+  color: red;
+}
