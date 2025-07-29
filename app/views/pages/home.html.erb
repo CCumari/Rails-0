@@ -1,7 +1,50 @@
-<h1>Hello World!</h1>
-<p>Welcome to the home page of our blog application.</p>
+<div class="row">
+  <div class="col-12">
+    <div class="jumbotron bg-primary text-white p-5 rounded mb-4">
+      <div class="text-center">
+        <h1 class="display-4">Welcome to Blog App</h1>
+        <p class="lead">Share your thoughts, read amazing articles, and connect with writers around the world.</p>
+        <hr class="my-4">
+        <div class="d-grid gap-2 d-md-block">
+          <%= link_to 'View Articles', articles_path, class: "btn btn-light btn-lg me-3" %>
+          <%= link_to 'Sign Up', signup_path, class: "btn btn-outline-light btn-lg" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%=link_to 'View Articles', articles_path %>
-<%=link_to 'About', about_path%>
-
-<%= link_to 'Sign Up', signup_path%>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card h-100">
+      <div class="card-body text-center">
+        <i class="bi bi-journal-text display-4 text-primary mb-3"></i>
+        <h5 class="card-title">Read Articles</h5>
+        <p class="card-text">Discover amazing articles written by our community of writers.</p>
+        <%= link_to 'Browse Articles', articles_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <div class="card h-100">
+      <div class="card-body text-center">
+        <i class="bi bi-pencil-square display-4 text-success mb-3"></i>
+        <h5 class="card-title">Write Articles</h5>
+        <p class="card-text">Share your thoughts and stories with our community.</p>
+        <%= link_to 'Sign Up to Write', signup_path, class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <div class="card h-100">
+      <div class="card-body text-center">
+        <i class="bi bi-people display-4 text-info mb-3"></i>
+        <h5 class="card-title">Join Community</h5>
+        <p class="card-text">Connect with writers and readers from around the world.</p>
+        <%= link_to 'Learn More', about_path, class: "btn btn-info" %>
+      </div>
+    </div>
+  </div>
+</div>

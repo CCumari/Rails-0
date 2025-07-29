@@ -1,22 +1,37 @@
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Author</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @articles.each do |article| %>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead class="table-dark">
       <tr>
-        <td><%= article.title %></td>
-        <td><%= article.content %></td>
-        <td><%= article.user.name if article.user %></td>
-        <td><Button><%= link_to 'Show', article_path(article) %></Button></td>
-        <td><Button><%= link_to 'Edit', edit_article_path(article) %></Button></td>
-        <td><%= button_to 'Delete', article_path(article), method: :delete %></td>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Author</th>
+        <th>Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><strong><%= article.title %></strong></td>
+          <td><%= truncate(article.content, length: 100) %></td>
+          <td>
+            <% if article.user %>
+              <i class="bi bi-person-circle"></i> <%= article.user.name %>
+            <% else %>
+              <span class="text-muted">Unknown</span>
+            <% end %>
+          </td>
+          <td>
+            <div class="btn-group" role="group">
+              <%= link_to 'Show', article_path(article), class: "btn btn-outline-primary btn-sm" %>
+              <%= link_to 'Edit', edit_article_path(article), class: "btn btn-outline-secondary btn-sm" %>
+              <%= button_to 'Delete', article_path(article), method: :delete, 
+                  class: "btn btn-outline-danger btn-sm", 
+                  confirm: "Are you sure?",
+                  form: { style: "display: inline-block;" } %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

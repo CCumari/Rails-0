@@ -1,11 +1,47 @@
-<h1>Showing Article details</h1>
-
-<h2>Title: <%= @article.title %></h2>
-<p>Content: <%= @article.content %></p>
-<p>Author: <%= @article.user.name if @article.user%></p>
-<p>Genre: <%= @article.genre %></p>
-
-<p>
-  <%= link_to 'Edit', edit_article_path(@article) %> |
-  <%= link_to 'Back to Articles', articles_path %>
-</p>
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h1 class="card-title mb-0"><%= @article.title %></h1>
+        <div class="btn-group">
+          <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-outline-primary btn-sm" %>
+          <%= button_to 'Delete', article_path(@article), method: :delete, 
+              class: "btn btn-outline-danger btn-sm", 
+              confirm: "Are you sure?",
+              form: { style: "display: inline-block;" } %>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="mb-3">
+          <h6 class="text-muted">Author</h6>
+          <p class="mb-0">
+            <% if @article.user %>
+              <i class="bi bi-person-circle"></i> <%= @article.user.name %>
+            <% else %>
+              <span class="text-muted">Unknown</span>
+            <% end %>
+          </p>
+        </div>
+        
+        <div class="mb-3">
+          <h6 class="text-muted">Genre</h6>
+          <span class="badge bg-secondary"><%= @article.genre %></span>
+        </div>
+        
+        <div class="mb-3">
+          <h6 class="text-muted">Content</h6>
+          <div class="bg-light p-3 rounded">
+            <%= simple_format(@article.content) %>
+          </div>
+        </div>
+        
+        <div class="text-muted small">
+          <i class="bi bi-calendar"></i> Created on <%= @article.created_at.strftime("%B %d, %Y at %I:%M %p") %>
+        </div>
+      </div>
+      <div class="card-footer">
+        <%= link_to 'Back to Articles', articles_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>

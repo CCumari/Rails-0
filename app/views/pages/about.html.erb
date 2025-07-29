@@ -1,5 +1,32 @@
-<h1>This is our About Page</h1>
-<p>Here you can find information about our blog application and its purpose.</p>
-
-<%=link_to 'View Articles', articles_path %>
-<%=link_to 'Home', root_path%>
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h1 class="card-title mb-0">About Blog App</h1>
+      </div>
+      <div class="card-body">
+        <p class="lead">Welcome to our blogging platform where creativity meets community.</p>
+        
+        <h4>Our Mission</h4>
+        <p>We believe everyone has a story to tell. Our platform provides a space for writers of all levels to share their thoughts, experiences, and expertise with a global audience.</p>
+        
+        <h4>What We Offer</h4>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">✍️ Easy-to-use article creation tools</li>
+          <li class="list-group-item">📚 Browse articles across various genres</li>
+          <li class="list-group-item">👥 Connect with other writers and readers</li>
+          <li class="list-group-item">🔒 Secure user profiles and content management</li>
+        </ul>
+        
+        <h4 class="mt-4">Get Started</h4>
+        <p>Ready to join our community? Sign up today and start sharing your stories!</p>
+        
+        <div class="d-grid gap-2 d-md-block">
+          <%= link_to 'View Articles', articles_path, class: "btn btn-primary" %>
+          <%= link_to 'Sign Up', signup_path, class: "btn btn-success" %>
+          <%= link_to 'Home', root_path, class: "btn btn-outline-secondary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
