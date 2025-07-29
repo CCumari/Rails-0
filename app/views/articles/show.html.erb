@@ -2,7 +2,7 @@
 
 <h2>Title: <%= @article.title %></h2>
 <p>Content: <%= @article.content %></p>
-<p>Author: <%= @article.author %></p>
+<p>Author: <%= @article.user.name if @article.user%></p>
 <p>Genre: <%= @article.genre %></p>
 
 <p>

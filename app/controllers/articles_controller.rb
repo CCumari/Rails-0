@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.user = User.first
     
     @article.save
     if @article.errors.any?
@@ -59,7 +60,11 @@ class ArticlesController < ApplicationController
 
   private
   def set_article
-    @article = Article.find(params[:id])
+    @article = Article.find_by(id: params[:id])
+    unless @article
+      flash[:error] = "Article not found"
+      redirect_to articles_path
+    end
   end
 
   def article_params

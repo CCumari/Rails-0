@@ -1,0 +1,28 @@
+<%= form_with model: @user, local: true do |form| %>
+ 
+ 
+    <%= render 'shared/error', obj:@user %>
+
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <br/>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+  <br/>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+  <br/>
+
+  <div class="actions">
+    <%= form.submit(@user.new_record? ? "Submit" : "Update") %>
+  </div>
+<% end %>
