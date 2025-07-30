@@ -1,0 +1,20 @@
+<%= form_with scope: :session, url: login_path, local: true, class: "row g-3" do |form| %>
+  
+  <div class="col-12">
+    <%= form.label :email, class: "form-label" %>
+    <%= form.email_field :email, class: "form-control", placeholder: "Enter your email address", required: true %>
+  </div>
+
+  <div class="col-12">
+    <%= form.label :password, class: "form-label" %>
+    <%= form.password_field :password, class: "form-control", placeholder: "Enter your password", required: true %>
+  </div>
+
+  <div class="col-12">
+    <%= form.submit "Login", class: "btn btn-primary w-100" %>
+  </div>
+  
+  <div class="col-12 text-center">
+    <p class="mb-0">Don't have an account? <%= link_to "Sign up here", signup_path, class: "text-decoration-none" %></p>
+  </div>
+<% end %>

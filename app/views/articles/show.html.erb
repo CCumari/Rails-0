@@ -4,11 +4,13 @@
       <div class="card-header d-flex justify-content-between align-items-center">
         <h1 class="card-title mb-0"><%= @article.title %></h1>
         <div class="btn-group">
+          <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
           <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-outline-primary btn-sm" %>
           <%= button_to 'Delete', article_path(@article), method: :delete, 
               class: "btn btn-outline-danger btn-sm", 
               confirm: "Are you sure?",
               form: { style: "display: inline-block;" } %>
+          <% end %>
         </div>
       </div>
       <div class="card-body">

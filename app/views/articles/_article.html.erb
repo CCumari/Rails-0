@@ -23,11 +23,13 @@
           <td>
             <div class="btn-group" role="group">
               <%= link_to 'Show', article_path(article), class: "btn btn-outline-primary btn-sm" %>
+              <% if logged_in? && (article.user == current_user || current_user.admin?) %>
               <%= link_to 'Edit', edit_article_path(article), class: "btn btn-outline-secondary btn-sm" %>
               <%= button_to 'Delete', article_path(article), method: :delete, 
                   class: "btn btn-outline-danger btn-sm", 
                   confirm: "Are you sure?",
                   form: { style: "display: inline-block;" } %>
+              <% end %>
             </div>
           </td>
         </tr>

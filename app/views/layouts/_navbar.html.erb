@@ -23,9 +23,37 @@
             </li>
           </ul>
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <%= link_to "Sign Up", signup_path, class: "nav-link" %>
-            </li>
+            <% if logged_in? %>
+              <li class="nav-item">
+                <%= link_to user_path(current_user), class: "nav-link" do %>
+                  <% if current_user.admin? %>
+                    <span class="badge bg-warning me-1">Admin</span>
+                  <% end %>
+                  <%= current_user.name %>
+                <% end %>
+              </li>
+              
+              <li class="nav-item">
+                <%= button_to "Logout", logout_path, method: :delete, 
+                    class: "btn btn-link nav-link border-0 bg-transparent", 
+                    form: { style: "display: inline;" } %>
+              </li>
+
+              <li class="nav-item">
+                <%= button_to "Delete Profile", user_path(current_user), method: :delete,
+                    data: { confirm: "Are you sure?" } ,
+                    class: "btn btn-link nav-link border-0 bg-transparent", 
+                    form: { style: "display: inline;" } %>
+              </li>
+              
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Sign Up", signup_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Login", login_path, class: "nav-link" %>
+              </li>
+            <% end %>
           </ul>
         </div>
       </div>

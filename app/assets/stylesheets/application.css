@@ -81,37 +81,6 @@ body {
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-/* Pagination styling */
-.pagination {
-  margin: 20px 0;
-}
-
-.pagination a, .pagination .current, .pagination .gap {
-  display: inline-block;
-  padding: 8px 12px;
-  margin: 0 2px;
-  text-decoration: none;
-  border: 1px solid #dee2e6;
-  border-radius: 4px;
-  color: #007bff;
-}
-
-.pagination a:hover {
-  background-color: #e9ecef;
-  color: #0056b3;
-}
-
-.pagination .current {
-  background-color: #007bff;
-  color: white;
-  border-color: #007bff;
-}
-
-.pagination .gap {
-  color: #6c757d;
-  border: none;
-}
-
 /*
 .digg_pagination {
   background: white;
